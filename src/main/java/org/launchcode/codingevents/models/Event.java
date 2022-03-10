@@ -1,5 +1,8 @@
 package org.launchcode.codingevents.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -14,6 +17,8 @@ public class Event {
     @GeneratedValue
     private int id;
 //    private static int nextId = 1;
+    //we no longer need this field because the @GeneratedValue tells the database to generate the values of the primary key
+    //the @ID tells it that this is a primary key
 
     @NotBlank(message = "Name is required")
     @Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters")
@@ -40,7 +45,7 @@ public class Event {
 //        this.id = nextId;
 //        nextId++;
     }
-
+// we dont need this constructor filled becuase the database is generating the next id now
     public String getName() {
         return name;
     }
